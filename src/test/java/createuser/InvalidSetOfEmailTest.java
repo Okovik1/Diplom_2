@@ -1,6 +1,5 @@
 package createuser;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -26,7 +25,6 @@ public class InvalidSetOfEmailTest {
     }
 
     @DisplayName("Create user without email")
-    @Description("Create new user without email and try to verify exception message")
     @Test
     public void invalidSetOfEmailTest() {
         ValidatableResponse responseWithoutLogin = userClient.createUser(userWithoutLogin);

@@ -14,7 +14,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class CreateOrderWithIngredientTest {
+public class OrderWithoutAuthTest {
 
     OrderClient orderClient;
     Order order;
@@ -27,7 +27,7 @@ public class CreateOrderWithIngredientTest {
     }
 
     @Test
-    @DisplayName("Create order with ingredients")
+    @DisplayName("Create order without auth")
     public void createOrderWithIngredientTest(){
         ValidatableResponse createOrderResponse = orderClient.createOrder( accessToken,order);
         int statusCode = createOrderResponse.extract().statusCode();

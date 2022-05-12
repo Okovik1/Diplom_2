@@ -1,6 +1,5 @@
 package createuser;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -25,14 +24,13 @@ public class PositiveCreationUserTest {
     }
 
     @DisplayName("Create user positive test")
-    @Description("Create new user with valid set of credentials")
     @Test
     public void positiveCreationUserTest() {
         ValidatableResponse response = userClient.createUser(userPositive);
         int statusCode = response.extract().statusCode();
         Boolean bodyResponse = response.extract().path("success");
 
-        assertThat("Something went wrong, status != 201", statusCode, equalTo(SC_OK));
+        assertThat("Something went wrong, status != 200", statusCode, equalTo(SC_OK));
         assertThat("Boolean expression is not true", bodyResponse, is(true));
     }
 }

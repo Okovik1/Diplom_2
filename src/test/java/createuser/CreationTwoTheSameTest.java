@@ -1,6 +1,5 @@
 package createuser;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Before;
@@ -24,7 +23,6 @@ public class CreationTwoTheSameTest {
     }
 
     @DisplayName("Create two users with the same credentials")
-    @Description("Create two users with the same credentials, try to verify an exception in that case")
     @Test
     public void courierCreationTwoTheSameTest() {
         ValidatableResponse firstUserCreation = userClient.createUser(user);
