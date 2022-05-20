@@ -20,13 +20,13 @@ public class CreationTwoTheSameTest {
     public void setUp() {
         userClient = new UserClient();
         user = new User("TestLogin1@test.com", "TestPassword1", "TestName1");
+        userClient.createUser(user);
     }
 
     @DisplayName("Create two users with the same credentials")
     @Test
     public void courierCreationTwoTheSameTest() {
-        ValidatableResponse firstUserCreation = userClient.createUser(user);
-        ValidatableResponse secondSameUserCreation = firstUserCreation;
+        ValidatableResponse secondSameUserCreation = userClient.createUser(user);
 
         int statusCode = secondSameUserCreation.extract().statusCode();
         String bodyResponse = secondSameUserCreation.extract().path("message");
